@@ -1,14 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '@/components/layout/MainAppLayout';
+import PageHeader from '@/components/Dashboard/PageHeader';
+import LeadsCountCard from '@/components/Dashboard/LeadsCountCard';
+import TrackingChart from '@/components/Dashboard/TrackingChart';
+import StatsGrid from '@/components/Dashboard/StatsGrid';
 
-const Index = () => {
+/**
+ * DashboardPage Component
+ * 
+ * This is the main page for the Leads Dashboard. It serves as a container
+ * that composes various dashboard widgets within the MainAppLayout.
+ * The layout provides the consistent structure (sidebar, header), and this
+ * page arranges the specific content for the dashboard overview.
+ */
+const IndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <MainAppLayout>
+      {/* 
+        The MainAppLayout component wraps the page content, providing the 
+        sidebar, header, and the main content area with appropriate styling.
+        The children of MainAppLayout are rendered inside a flex container 
+        with a vertical gap, as defined in the layout requirements.
+      */}
+      <PageHeader />
+      <LeadsCountCard />
+      <TrackingChart />
+      <StatsGrid />
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default IndexPage;
